@@ -1,0 +1,7 @@
+
+.ltr-number {
+  direction: ltr;
+  unicode-bidi: embed;
+  font-family: sans-serif;
+  display: inline-block;
+}

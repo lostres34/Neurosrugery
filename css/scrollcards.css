@@ -1,0 +1,17 @@
+
+.scroll-card {
+  background: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  margin: 50px auto;
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 1200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.scroll-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+body {
+  background: linear-gradient(to bottom, #f5faff, #f0f4f8);
+}
