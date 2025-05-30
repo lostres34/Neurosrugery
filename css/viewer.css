@@ -135,3 +135,47 @@ body.viewer-active {
     gap: 6px;
   }
 }
+
+@media (max-width: 768px) {
+  .viewer-modal {
+    padding: 6px;
+    max-height: 100vh;
+  }
+
+  .media-content {
+    max-height: 80vh;
+    width: auto;
+  }
+
+  .viewer-thumbnails {
+    gap: 4px;
+    padding: 4px;
+    max-height: 80px;
+    overflow-x: auto;
+  }
+
+  .viewer-controls {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 4px 6px;
+    gap: 6px;
+  }
+
+  .viewer-controls button {
+    font-size: 12px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+
+  .viewer-close {
+    font-size: 32px;
+    top: 8px;
+    right: 10px;
+  }
+
+  .viewer-modal {
+    background-color: #111;
+    color: white;
+  }
+}
