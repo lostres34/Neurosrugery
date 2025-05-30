@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Control buttons
   document.getElementById("viewerClose")?.addEventListener("click", closeViewer);
 
   document.getElementById("viewerPrev")?.addEventListener("click", () => {
@@ -89,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (media.msRequestFullscreen) media.msRequestFullscreen();
   });
 
-  // Enable keyboard navigation
+  // Keyboard navigation
   document.addEventListener("keydown", (e) => {
     if (!currentWorkshop) return;
     if (e.key === "ArrowRight") document.getElementById("viewerNext")?.click();
@@ -97,6 +96,36 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") document.getElementById("viewerClose")?.click();
   });
 
-  // Expose globally
+  // Swipe gesture for mobile navigation
+  let touchStartX = 0;
+  overlay?.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  overlay?.addEventListener("touchend", e => {
+    const deltaX = e.changedTouches[0].screenX - touchStartX;
+    if (deltaX > 60) document.getElementById("viewerPrev")?.click();
+    else if (deltaX < -60) document.getElementById("viewerNext")?.click();
+  });
+
+  // Reset zoom on orientation change
+  window.addEventListener("orientationchange", () => {
+    const media = document.querySelector(".media-content");
+    if (media?.tagName === "IMG") {
+      media.style.transform = "scale(1)";
+    }
+  });
+
+  // Enable pinch zoom for fullscreen images
+  document.addEventListener("fullscreenchange", () => {
+    const media = document.querySelector(".media-content");
+    if (media?.tagName === "IMG") {
+      media.style.touchAction = "pinch-zoom";
+      media.style.maxWidth = "none";
+      media.style.maxHeight = "none";
+    }
+  });
+
+  // Expose to global scope
   window.openViewer = openViewer;
 });
