@@ -1,0 +1,137 @@
+body.viewer-active {
+  overflow: hidden;
+}
+
+.viewer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-overlay.hidden {
+  display: none;
+}
+
+.viewer-modal {
+  background: #fff;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 900px;
+  max-height: 95vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 10px;
+}
+
+.viewer-close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.viewer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  height: 100%;
+}
+
+#viewerMedia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 100%;
+}
+
+.media-content {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: grab;
+}
+
+.viewer-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 8px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.viewer-thumbnails img,
+.viewer-thumbnails video {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.viewer-thumbnails img:hover,
+.viewer-thumbnails video:hover {
+  border-color: #007acc;
+}
+
+.viewer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+
+.viewer-controls button {
+  padding: 6px 14px;
+  font-size: 14px;
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.viewer-controls button:hover {
+  background-color: #005fa3;
+}
+
+@media (max-width: 768px) {
+  .viewer-modal {
+    padding: 6px;
+  }
+
+  .media-content {
+    max-height: 50vh;
+  }
+
+  .viewer-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .viewer-thumbnails {
+    gap: 6px;
+  }
+}
