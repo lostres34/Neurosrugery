@@ -21,7 +21,8 @@
 <meta content="Educational workshops and cadaver courses in neurosurgery." name="twitter:description"/>
 <link href="css/workshops.css" rel="stylesheet"/>
 <link href="css/offcanvas.css" rel="stylesheet"/>
-<link href="css/animations.css" rel="stylesheet"/></head>
+<link href="css/animations.css" rel="stylesheet"/>
+<link href="css/viewer.css" rel="stylesheet"/></head>
 <body>
 <div class="ribbon-header animate-on-scroll">
 <div class="ribbon-text animate-on-scroll right">
@@ -91,7 +92,7 @@
 <div class="animate-on-scroll right" style="text-align:center; margin-bottom: 20px;">
 </div>
 <div class="doctor-grid animate-on-scroll left" style="grid-template-columns: repeat(3, 1fr); margin-top: 30px;">
-<div class="workshop-item animate-on-scroll card-hover animate-fade-in-up animate-delay-1" onclick="openWorkshop('workshop1')">
+<div class="workshop-item animate-on-scroll card-hover animate-fade-in-up animate-delay-1" onclick="openViewer('workshop1')">
 <img alt="Workshop 1" src="images/workshops/workshop.jpg"/>
 <span class="badge animate-zoom-in">
        Hands-on
@@ -100,7 +101,7 @@
        Skull base masterclass dissection course
       </p>
 </div>
-<div class="workshop-item animate-on-scroll left card-hover animate-fade-in-up animate-delay-2" onclick="openWorkshop('workshop2')">
+<div class="workshop-item animate-on-scroll left card-hover animate-fade-in-up animate-delay-2" onclick="openViewer('workshop2')">
 <img alt="Workshop 2" src="images/workshops/workshop.jpg"/>
 <span class="badge animate-zoom-in">
        Anatomy
@@ -109,7 +110,7 @@
        Cadaveric brain anatomy course
       </p>
 </div>
-<div class="workshop-item animate-on-scroll right card-hover animate-fade-in-up animate-delay-3" onclick="openWorkshop('workshop3')">
+<div class="workshop-item animate-on-scroll right card-hover animate-fade-in-up animate-delay-3" onclick="openViewer('workshop3')">
 <img alt="Workshop 3" src="images/workshops/workshop.jpg"/>
 <span class="badge animate-zoom-in">
        Spine
@@ -118,7 +119,7 @@
        Hands-on Cadaver Spinal surgery course
       </p>
 </div>
-<div class="workshop-item animate-on-scroll left card-hover animate-fade-in-up animate-delay-4" onclick="openWorkshop('workshop4')">
+<div class="workshop-item animate-on-scroll left card-hover animate-fade-in-up animate-delay-4" onclick="openViewer('workshop4')">
 <img alt="Workshop 4" src="images/workshops/workshop.jpg"/>
 <span class="badge animate-zoom-in">
        Navigation
@@ -127,7 +128,7 @@
        NeuroNavigation course
       </p>
 </div>
-<div class="workshop-item animate-on-scroll left card-hover animate-fade-in-up animate-delay-1" onclick="openWorkshop('workshop5')">
+<div class="workshop-item animate-on-scroll left card-hover animate-fade-in-up animate-delay-1" onclick="openViewer('workshop5')">
 <img alt="Workshop 5" src="images/workshops/workshop.jpg"/>
 <span class="badge animate-zoom-in">
        Navigation
@@ -145,22 +146,30 @@
 <button aria-label="Back to top" class="back-to-top animate-slide-in animate-delay-2" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
    ↑
   </button>
-<div class="viewer-overlay" onclick="closeViewer()"></div>
-<div class="viewer-box" id="viewerBox">
-  <div class="viewer-inner">
-    <button onclick="closeViewer()" class="close-btn">✖</button>
-    <div class="viewer-preview" id="viewerPreview"></div>
-    <div class="viewer-media" id="viewerMedia"></div>
-    <div class="nav-buttons">
-      <button onclick="prevMedia()">⟨ Prev</button>
-      <button onclick="nextMedia()">Next ⟩</button>
-    </div>
-  </div>
+
+
+<!-- Viewer Modal -->
+<div class="viewer-overlay hidden" id="viewerOverlay">
+<div class="viewer-modal">
+<button aria-label="Close" class="viewer-close" id="viewerClose">×</button>
+<div class="viewer-content">
+<div id="viewerMedia"></div>
+<div class="viewer-thumbnails" id="viewerThumbnails"></div>
+<div class="viewer-controls">
+<button id="viewerPrev">⟨ Prev</button>
+<button id="viewerNext">Next ⟩</button>
+<button id="viewerZoomIn">🔍+</button>
+<button id="viewerZoomOut">🔍−</button>
+<button id="viewerFullscreen">⛶</button>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-<script src="js/workshops.js">
-</script>
-<script src="js/offcanvas.js">
-</script>
+<script src="js/workshops.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/offcanvas.js"></script>
 </body>
 </html>
