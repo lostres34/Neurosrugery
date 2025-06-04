@@ -1,178 +1,69 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link href="css/style.css" rel="stylesheet"/>
-  <style>
-   h2 {
-      text-align: center;
-      margin-top: 20px;
-      color: #003366;
-    }
-    .filters {
-      text-align: center;
-      margin: 20px;
-    }
-    .filters button {
-      margin: 5px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      background: #e0e0e0;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .filters button.active {
-      background: #003366;
-      color: white;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .gallery-item:hover {
-      transform: scale(1.05);
-    }
-    .gallery-item img {
-      height: 180px;
-      width: 100%;
-      object-fit: cover;
 
-      width: 100%;
-      display: block;
-    }
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      flex-direction: column;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 8px;
-    }
-    .lightbox .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-    }
-    @media (max-width: 600px) {
-      .filters { flex-wrap: wrap; }
-    }
-  </style>
-  <style>
-   .lightbox-caption {
-      color: white;
-      margin-top: 10px;
-      text-align: center;
-      font-size: 16px;
-      max-width: 90%;
-    }
-    .lightbox video {
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 8px;
-      display: none;
-    }
-    .zoomable {
-      cursor: grab;
-      transition: transform 0.25s ease;
-    }
-    .animated-title, .animated-subtitle {
-      animation: fadeInDown 1s ease-out both;
-    }
-    .gallery-item {
-      animation: fadeInUp 0.6s ease forwards;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-  <title>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/gallery.css" rel="stylesheet"/>
+<title>
    Gallery | Neurosurgery Department
   </title>
-  <meta content="Explore images from events, surgeries, and educational activities." name="description"/>
-  <meta content="neurosurgery, hospital, surgery, research, Iran, Imam Khomeini, education, medical, treatments" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <link href="" rel="canonical"/>
-  <meta content="Gallery | Neurosurgery Department" property="og:title"/>
-  <meta content="Explore images from events, surgeries, and educational activities." property="og:description"/>
-  <meta content="website" property="og:type"/>
-  <meta content="en_US" property="og:locale"/>
-  <meta content="summary" name="twitter:card"/>
-  <meta content="Gallery | Neurosurgery Department" name="twitter:title"/>
-  <meta content="Explore images from events, surgeries, and educational activities." name="twitter:description"/>
-    <link href="css/offcanvas.css" rel="stylesheet"/>
- </head>
- <body>
-  <div class="ribbon-header animate-on-scroll">
-   <div class="ribbon-text animate-on-scroll left">
-    <h1 class="animated-title">
+<meta content="Explore images from events, surgeries, and educational activities." name="description"/>
+<meta content="neurosurgery, hospital, surgery, research, Iran, Imam Khomeini, education, medical, treatments" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://example.com/gallery.html" rel="canonical"/>
+<meta content="Gallery | Neurosurgery Department" property="og:title"/>
+<meta content="Explore images from events, surgeries, and educational activities." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="Gallery | Neurosurgery Department" name="twitter:title"/>
+<meta content="Explore images from events, surgeries, and educational activities." name="twitter:description"/>
+<link href="css/offcanvas.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="ribbon-header animate-on-scroll">
+<div class="ribbon-text animate-on-scroll left">
+<h1 class="animated-title">
      Neurosurgery Department
     </h1>
-    <p class="animated-subtitle animate-on-scroll right">
+<p class="animated-subtitle animate-on-scroll right">
      Mahdi Clinic
     </p>
-   </div>
-   <div class="ribbon-logos animate-on-scroll left">
-    <img alt="Logo 3" src="images/logo3.png"/>
-   </div>
-  </div>
-  <button aria-label="Open menu" class="nav-toggle">
+</div>
+<div class="ribbon-logos animate-on-scroll left">
+<img alt="Logo 3" loading="lazy" src="images/logo3.png"/>
+</div>
+</div>
+<button aria-label="Open menu" class="nav-toggle">
    ☰ Menu
   </button>
-  <nav class="section-nav">
-  <a href="homepage_en.html">Home</a>
-  <a href="team.html">Surgical Team</a>
-  <a href="residents.html">Residents</a>
-  <a href="treatments.html">Treatments</a>
-  <a href="workshops.html">Workshops</a>
-  <a href="research.html">Research</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="patienteducation.html">Patient Education</a>
-  <a href="news.html">News</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <div class="language-switcher" style="margin-top: 10px; text-align: center;">
-    <a class="lang-btn" href="gallery_fa.html" style="margin: 5px; font-weight: bold;">
+<nav class="section-nav">
+<a href="homepage_en.html">Home</a>
+<a href="team.html">Surgical Team</a>
+<a href="residents.html">Residents</a>
+<a href="treatments.html">Treatments</a>
+<a href="workshops.html">Workshops</a>
+<a href="research.html">Research</a>
+<a href="gallery.html">Gallery</a>
+<a href="patienteducation.html">Patient Education</a>
+<a href="news.html">News</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<div class="language-switcher" style="margin-top: 10px; text-align: center;">
+<a class="lang-btn" href="gallery_fa.html" style="margin: 5px; font-weight: bold;">
      🇮🇷 فارسی
     </a>
-    <a class="lang-btn" href="gallery.html" style="margin: 5px; font-weight: bold;">
+<a class="lang-btn" href="gallery.html" style="margin: 5px; font-weight: bold;">
      🇬🇧 English
     </a>
-   </div>
+</div>
 </nav>
-  <div class="off-canvas-overlay"></div>
+<div class="off-canvas-overlay"></div>
 <nav class="off-canvas-menu">
-  <button class="off-canvas-close" aria-label="Close">×</button>
-  <a href="homepage_en.html">🏠 Home</a>
+<button aria-label="Close" class="off-canvas-close">×</button>
+<a href="homepage_en.html">🏠 Home</a>
 <a href="team.html">🧑‍⚕️ Surgical Team</a>
 <a href="residents.html">👨‍🎓 Residents</a>
 <a href="treatments.html">💉 Treatments</a>
@@ -184,90 +75,108 @@
 <a href="about.html">ℹ️ About</a>
 <a href="contact.html">📞 Contact</a>
 <div class="language-switcher" style="margin-top: 20px; text-align: center;">
-  <a class="lang-btn" href="gallery_fa.html" style="display: inline-block; margin: 8px; padding: 8px 12px; font-weight: bold; color: #005c99; background: #eef4ff; border-radius: 6px; text-decoration: none;">
+<a class="lang-btn" href="gallery_fa.html" style="display: inline-block; margin: 8px; padding: 8px 12px; font-weight: bold; color: #005c99; background: #eef4ff; border-radius: 6px; text-decoration: none;">
     🇮🇷 فارسی
   </a>
-  <a class="lang-btn" href="gallery.html" style="display: inline-block; margin: 8px; padding: 8px 12px; font-weight: bold; color: #005c99; background: #eef4ff; border-radius: 6px; text-decoration: none;">
+<a class="lang-btn" href="gallery.html" style="display: inline-block; margin: 8px; padding: 8px 12px; font-weight: bold; color: #005c99; background: #eef4ff; border-radius: 6px; text-decoration: none;">
     🇬🇧 English
   </a>
 </div>
-
 </nav>
-  <main style="padding: 40px 20px;">
-   <h2 class="animate-on-scroll right">
+<main style="padding: 40px 20px;">
+<h2 class="animate-on-scroll right">
     Gallery
    </h2>
-   <div class="filters animate-on-scroll">
-    <button class="filter-btn active" onclick="filterGallery('all')">
+<div class="filters animate-on-scroll">
+<button class="filter-btn active" onclick="filterGallery('all')">
      All
     </button>
-    <button class="filter-btn" onclick="filterGallery('surgery')">
+<button class="filter-btn" onclick="filterGallery('surgery')">
      Surgeries &amp; OR
     </button>
-    <button class="filter-btn" onclick="filterGallery('outdoor')">
+<button class="filter-btn" onclick="filterGallery('outdoor')">
      Outdoor Activities
     </button>
-    <button class="filter-btn" onclick="filterGallery('workshop')">
+<button class="filter-btn" onclick="filterGallery('workshop')">
      Workshops
     </button>
-    <button class="filter-btn" onclick="filterGallery('events')">
+<button class="filter-btn" onclick="filterGallery('events')">
      Events
     </button>
-   </div>
-   <div class="gallery animate-on-scroll" id="gallery">
-    <div class="gallery-item events animate-on-scroll right">
-     <img alt="Video Event" onclick="openLightbox('videos/sample.mp4', 'Video Event: Highlights', true)" src="https://via.placeholder.com/400x250?text=Video+Event"/>
-    </div>
-    <div class="gallery-item surgery animate-on-scroll left">
-     <img alt="Surgery 1" onclick="openLightbox(this.src)" src="c:\users\mostafa\desktop\clean\images\gallery\surgery\surgery1.jpg"/>
-    </div>
-    <div class="gallery-item surgery animate-on-scroll left">
-     <img alt="Surgery 2" onclick="openLightbox(this.src)" src="c:\users\mostafa\desktop\clean\images\gallery\surgery\surgery2.jpg"/>
-    </div>
-    <div class="gallery-item outdoor animate-on-scroll right">
-     <img alt="Outdoor 1" onclick="openLightbox(this.src)" src="c:\users\mostafa\desktop\clean\images\gallery\outdoors\outdoor2.jpg"/>
-    </div>
-    <div class="gallery-item workshop animate-on-scroll left">
-     <img alt="Workshop 1" onclick="openLightbox(this.src, 'Workshop: Advanced Techniques')" src="images/gallery/workshops/1.jpg"/>
-    </div>
-    <div class="gallery-item events animate-on-scroll">
-     <img alt="Event 1" onclick="openLightbox(this.src)" src="c:\users\mostafa\desktop\clean\images\gallery\events\event1.jpg"/>
-    </div>
-    <div class="gallery-item events animate-on-scroll right">
-     <img alt="Event 2" onclick="openLightbox(this.src, 'Event: Annual Conference')" src="c:\users\mostafa\desktop\clean\images\gallery\events\event2.jpg"/>
-    </div>
-    <div class="gallery-item outdoor animate-on-scroll left">
-     <img alt="Outdoor 2" onclick="openLightbox(this.src, 'Outdoor Camp Trip')" src="c:\users\mostafa\desktop\clean\images\gallery\outdoors\outdoor1.jpg"/>
-    </div>
-    <div class="gallery-item workshop animate-on-scroll">
-     <img alt="Workshop 2" onclick="openLightbox(this.src, 'Workshop: Hands-on Skills')" src="https://via.placeholder.com/400x250?text=Workshop+2"/>
-    </div>
-   </div>
-   <div class="lightbox animate-on-scroll" id="lightbox">
-    <span class="close" onclick="closeLightbox()">
+</div>
+<div class="gallery animate-on-scroll" id="gallery">
+<div class="gallery-item surgery animate-on-scroll left">
+<img alt="Surgery 1" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/surgery/surgery1.jpg"/>
+</div>
+<div class="gallery-item surgery animate-on-scroll right">
+<img alt="Surgery 2" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/surgery/surgery2.jpg"/>
+</div>
+<div class="gallery-item surgery animate-on-scroll left">
+<img alt="Surgery 3" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/surgery/surgery3.jpg"/>
+</div>
+<div class="gallery-item surgery animate-on-scroll right">
+<img alt="Surgery 4" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/surgery/surgery4.jpg"/>
+</div>
+<div class="gallery-item surgery animate-on-scroll left">
+<img alt="Surgery 5" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/surgery/surgery5.jpg"/>
+</div>
+<div class="gallery-item outdoor animate-on-scroll right">
+<img alt="Outdoor 1" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/outdoors/outdoor1.jpg"/>
+</div>
+<div class="gallery-item outdoor animate-on-scroll right">
+<img alt="Outdoor 2" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/outdoors/outdoor2.jpg"/>
+</div>
+<div class="gallery-item outdoor animate-on-scroll right">
+<img alt="Outdoor 3" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/outdoors/outdoor3.jpg"/>
+</div>
+<div class="gallery-item workshop animate-on-scroll left">
+<img alt="Workshop 1" loading="lazy" onclick="openLightbox(this.src, 'Workshop: Advanced Techniques')" src="images/gallery/workshops/1.jpg"/>
+</div>
+<div class="gallery-item events animate-on-scroll">
+<img alt="Event 1" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/events/event1.jpg"/>
+</div>
+<div class="gallery-item events animate-on-scroll">
+<img alt="Event 2" loading="lazy" onclick="openLightbox(this.src)" src="images/gallery/events/event2.jpg"/>
+</div>
+<div class="gallery-item events animate-on-scroll right">
+<img alt="Event 3" loading="lazy" onclick="openLightbox(this.src, 'Event: Annual Conference')" src="images/gallery/events/event3.jpg"/>
+</div>
+<div class="gallery-item outdoor animate-on-scroll left">
+<img alt="Outdoor 2" loading="lazy" onclick="openLightbox(this.src, 'Outdoor Camp Trip')" src="images/gallery/outdoors/outdoor1.jpg"/>
+</div>
+<div class="gallery-item workshop animate-on-scroll">
+<img alt="Workshop 2" loading="lazy" onclick="openLightbox(this.src, 'Workshop: Hands-on Skills')" src="images/gallery/workshops/workshop2.jpg"/>
+</div>
+<div class="gallery-item workshop animate-on-scroll">
+<img alt="Workshop 3" loading="lazy" onclick="openLightbox(this.src, 'Workshop: Hands-on Skills')" src="images/gallery/workshops/workshop3.jpg"/>
+</div>
+<div class="gallery-item workshop animate-on-scroll">
+<img alt="Workshop 4" loading="lazy" onclick="openLightbox(this.src, 'Workshop: Hands-on Skills')" src="images/gallery/workshops/workshop4.jpg"/>
+</div>
+</div>
+<div class="lightbox animate-on-scroll" id="lightbox">
+<span class="close" onclick="closeLightbox()">
      ×
     </span>
-    <img alt="Large preview" id="lightbox-img" src=""/>
-    <div class="lightbox animate-on-scroll left" id="lightbox">
-     <span class="close" onclick="closeLightbox()">
+<img alt="Large preview" id="lightbox-img" loading="lazy" src=""/>
+<div class="lightbox animate-on-scroll left" id="lightbox">
+<span class="close" onclick="closeLightbox()">
       ×
      </span>
-     <img alt="Large preview" class="zoomable" id="lightbox-img" src=""/>
-     <video controls="" id="lightbox-video">
-     </video>
-     <div class="lightbox-caption animate-on-scroll right" id="lightbox-caption">
-     </div>
-    </div>
-   </div>
-  </main>
-  <footer style="margin-top: 60px; text-align: center; color: #555; font-size: 14px;">
+<img alt="Large preview" class="zoomable" id="lightbox-img" loading="lazy" src=""/>
+<video controls="" id="lightbox-video">
+</video>
+<div class="lightbox-caption animate-on-scroll right" id="lightbox-caption"></div>
+</div>
+<div class="lightbox-indicators" id="lightbox-indicators"></div></div></main>
+<footer style="margin-top: 60px; text-align: center; color: #555; font-size: 14px;">
    © 2025 Neurosurgery Department, Mahdi Clinic. All rights reserved.
   </footer>
-  <button aria-label="Back to top" class="back-to-top" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+<button aria-label="Back to top" class="back-to-top" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
    ↑
   </button>
-  <script src="js/gallery.js">
-  </script>
-  <script src="js/offcanvas.js"></script>
- </body>
+<script src="js/gallery.js">
+</script>
+<script src="js/offcanvas.js"></script>
+</body>
 </html>
